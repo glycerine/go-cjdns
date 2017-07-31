@@ -1,6 +1,8 @@
 package admin
 
-import "github.com/fc00/go-cjdns/key"
+import (
+	"github.com/fc00/go-cjdns/key"
+)
 
 func (c *Conn) InterfaceController_disconnectPeer(pubKey key.Public) error {
 	_, err := c.sendCmd(&request{
@@ -49,12 +51,13 @@ func (s PeerState) Int() int {
 // Peer statistics
 type PeerStats struct {
 	PublicKey          *key.Public // Public key of peer
-	SwitchLabel        *Path       // Internal switch label for reaching the peer
-	IsIncoming         bool        // Is the peer connected to us, or us to them
-	BytesOut           int64       // Total number of bytes sent
-	BytesIn            int64       // Total number of bytes received
-	State              string      // Peer connection state
-	Last               int64       // Last time a packet was received from the peer
+	Addr               string
+	SwitchLabel        *Path  // Internal switch label for reaching the peer
+	IsIncoming         bool   // Is the peer connected to us, or us to them
+	BytesOut           int64  // Total number of bytes sent
+	BytesIn            int64  // Total number of bytes received
+	State              string // Peer connection state
+	Last               int64  // Last time a packet was received from the peer
 	ReceivedOutOfRange int
 	Duplicates         int
 	LostPackets        int
