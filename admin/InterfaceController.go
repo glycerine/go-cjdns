@@ -1,7 +1,7 @@
 package admin
 
 import (
-	"github.com/fc00/go-cjdns/key"
+	"github.com/glycerine/go-cjdns/key"
 )
 
 func (c *Conn) InterfaceController_disconnectPeer(pubKey key.Public) error {
